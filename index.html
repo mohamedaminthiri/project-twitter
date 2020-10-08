@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <style>
+    	.d{
+    		background-color: lightblue;
+    		width: 500px; 
+    	    
+    	}
+    	.d1{
+    		background-color: lightblue;
+    		width: 500px; 
+    		margin-bottom: 50px;
+    	    
+    	}
+    	/*.d:hover {
+  -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1); 
+}
+
+   	.dr:hover {
+  -ms-transform: scale(1.3); 
+  -webkit-transform: scale(1.3); 
+  transform: scale(1.3); 
+}*/
+.centrage{
+max-width: 300px;
+  margin: auto;
+}
+
+
+    	.dr {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  background-color: lightblue;
+  width: 700px; 
+  margin-bottom: 200px;
+}
+
+
+   
+    	body {
+ background-image: url("twitter.jpg");
+ background.opacity: 3
+}
+    </style>
+  </head>
+  <body>
+
+    <script>
+    	var $b=$('<button id="b1" type="button">new tweets</button>')
+    	$divglobal=$('<div class="dg"></div>')
+    	$divres=$('<div class="dr"></div>')
+
+    	$('#bs').click(function(){
+    		var user =$("#us").val()
+    		console.log(user)
+    	})
+
+     $(document).ready(function(){
+        var $body = $('body');
+        $divglobal.html('');
+        $b.appendTo($body)
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var tweet1 = streams.home[index];
+          var tweet2 = streams.home[index];
+          var $d=$('<div class="d"></div>');
+       
+          var $tweet = $('<p class="1"></p>');
+          var $tweet1 = $('<p></p>');
+          var $tweet2 = $('<p></p>');
+         $tweet.text(tweet.user);
+          $tweet1.text(tweet.message);
+            $tweet2.text(tweet.created_at);
+
+          $tweet.appendTo($d);
+           $tweet1.appendTo($d);
+           $tweet2.appendTo($d);
+          
+           $d.appendTo($divglobal)
+           $divglobal.appendTo($body)
+          index -= 1;
+
+        }
+
+       
+      
+$("#b1").click(function(){
+
+        $divglobal.html('');
+
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var tweet1 = streams.home[index];
+          var tweet2 = streams.home[index];
+          var $d=$('<div class="d"></div>');
+          var $tweet = $('<p class="1"></p>');
+          var $tweet1 = $('<p></p>');
+          var $tweet2 = $('<p></p>');
+          var $im=$('<img class="img1" src="zoom.png"width="30" height="30">')
+         $tweet.text(tweet.user);
+          $tweet1.text(tweet.message);
+            $tweet2.text(tweet.created_at);
+          $tweet.appendTo($d);
+           $tweet1.appendTo($d);
+           $tweet2.appendTo($d);
+           $d.appendTo($divglobal)
+            $im.appendTo($d)
+           $divglobal.appendTo($body)
+          index -= 1;
+ 
+      }
+})
+
+
+
+
+
+  $(".1").click(function(e){
+
+            var v=e.target.textContent
+         $divres.html('')
+         var index = streams.home.length - 1;
+         while(index >= 0){
+         	 var tweet = streams.home[index];
+         	if(tweet["user"]===v){  
+           var tweet1 = streams.home[index];
+           var tweet2 = streams.home[index];
+           var $d1=$('<div class="d1"></div>');
+          var $tweet1 = $('<p></p>');
+          var $tweet2 = $('<p></p>');
+          $tweet1.text(tweet.message);
+           $tweet2.text(tweet.created_at);
+            $tweet1.appendTo($d1);
+            $tweet2.appendTo($d1);
+           $d1.appendTo($divres)
+           $divres.appendTo($body)  
+       }
+       index -= 1;
+   }
+
+        })
+
+ });   
+    </script>
+
+  </body>
+</html>
